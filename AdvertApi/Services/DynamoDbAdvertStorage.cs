@@ -41,7 +41,7 @@ namespace AdvertApi.Services
 
         public async Task<bool> CheckHealthAsync()
         {
-            Console.WriteLine("Health checking...");
+            //Console.WriteLine("Health checking...");
             using (var client = new AmazonDynamoDBClient())
             {
                 var tableData = await client.DescribeTableAsync("Adverts");

@@ -1,4 +1,5 @@
-﻿using AdvertApi.Services;
+﻿using AdvertApi.HealthChecks;
+using AdvertApi.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,7 @@ namespace AdvertApi
             services.AddTransient<IAdvertStorageService, DynamoDBAdvertStorage>();
             //services.AddTransient<StorageHealthCheck>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddHealthChecks().AddCheck<StorageHealthCheck>("Storage");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +42,7 @@ namespace AdvertApi
             }
 
             app.UseHttpsRedirection();
+            app.UseHealthChecks("/health");
             app.UseMvc();
         }
     }

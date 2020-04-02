@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>David Tantuo</Authors>
     <Company>Ba-Der solutions</Company>
+    <PackageProjectUrl>https://github.com/deTantuo/AdvertApi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/deTantuo/AdvertApi</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
